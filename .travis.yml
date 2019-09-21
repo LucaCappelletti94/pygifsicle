@@ -21,6 +21,7 @@ matrix:
           - gifsicle
     - os: osx
       sudo: true
+      dist: xenial
       addons:
         sonarcloud:
           organization: lucacappelletti94-github
