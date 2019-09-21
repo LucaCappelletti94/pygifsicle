@@ -36,16 +36,17 @@ def find_version(*file_paths):
 
 __version__ = find_version("pygifsicle", "__version__.py")
 
-if is_stdout_enabled():
-    if platform.system() == "Darwin":
-        subprocess.run(["brew", "install", "gifsicle"])
-    elif platform.system() == "Linux":
+
+if platform.system() == "Darwin":
+    subprocess.run(["brew", "install", "gifsicle"])
+elif platform.system() == "Linux":
+    if is_stdout_enabled():
         print("Installing gifsicle on Linux requires sudo!")
         print("Please run the following command in your terminal:")
         print("sudo apt-get install gifsicle")
-
         input("Press any key to continue with the installation of the python package.")
-    elif platform.system() == "Windows":
+elif platform.system() == "Windows":
+    if is_stdout_enabled():
         print("Please install the current gifsickle version from the website:")
         print("https://eternallybored.org/misc/gifsicle/")
         input("Press any key to continue with the installation of the python package.")
