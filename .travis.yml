@@ -21,7 +21,8 @@ matrix:
           - gifsicle
     - os: osx
       osx_image: xcode7.3
-      language: generic
+      python: 3.6
+      sudo: true
       addons:
         sonarcloud:
           organization: lucacappelletti94-github
