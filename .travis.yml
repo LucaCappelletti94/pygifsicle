@@ -32,7 +32,10 @@ matrix:
         - OPTIONAL_DEPS=1
         - OSX_PKG_ENV=miniconda
 before_install:
-- pip install --upgrade pytest
+  # prepare the system to install prerequisites or dependencies
+  - if [[ "${TRAVIS_OS_NAME}" == "osx" ]]; then
+      source tools/travis/osx_install.sh;
+  - pip install --upgrade pytest
 install:
 - pip install .[test]
 before_script:
