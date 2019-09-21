@@ -20,6 +20,7 @@ matrix:
           packages:
           - gifsicle
     - os: osx
+      language: generic
       sudo: true
       dist: xenial
       addons:
