@@ -18,7 +18,6 @@ Since some software handling coverages sometime get slightly different results, 
 
 |coveralls| |sonar_coverage| |code_climate_coverage|
 
-Python package wrapping the gifsicle library for editing and optimizing gifs.
 
 
 .. |travis| image:: https://travis-ci.org/LucaCappelletti94/pygifsicle.png
