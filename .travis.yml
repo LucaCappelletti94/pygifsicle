@@ -25,8 +25,6 @@ matrix:
       env:
       - TRAVIS_PYTHON_VERSION=3.6.1
       - OPTIONAL_DEPS=1
-      before_install:
-        - brew install gifsicle
 before_install:
 - pip install --upgrade pytest
 install:

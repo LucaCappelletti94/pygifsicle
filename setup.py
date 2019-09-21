@@ -6,6 +6,7 @@ import platform
 from setuptools import find_packages, setup
 import subprocess
 from getpass import getpass
+import sys
 
 here = os.path.abspath(os.path.dirname(__file__))
 
@@ -13,6 +14,11 @@ here = os.path.abspath(os.path.dirname(__file__))
 with copen(os.path.join(here, 'README.rst'), encoding='utf-8') as f:
     long_description = f.read()
 
+
+
+def is_stdout_enabled()->bool:
+    """Return a boolean representing if script is in a terminal with stdout enabled."""
+    return sys.stdout.isatty()
 
 def read(*parts):
     with copen(os.path.join(here, *parts), 'r') as fp:
@@ -30,17 +36,19 @@ def find_version(*file_paths):
 
 __version__ = find_version("pygifsicle", "__version__.py")
 
-if platform.system() == "Darwin":
-    subprocess.run(["brew", "install", "gifsicle"])
-elif platform.system() == "Linux":
-    print("Installing gifsicle on Linux requires sudo!")
-    print("Please run the following command in your terminal:")
-    print("sudo apt-get install gifsicle")
-    input("Press any key to continue with the installation of the python package.")
-elif platform.system() == "Windows":
-    print("Please install the current gifsickle version from the website:")
-    print("https://eternallybored.org/misc/gifsicle/")
-    input("Press any key to continue with the installation of the python package.")
+if is_stdout_enabled():
+    if platform.system() == "Darwin":
+        subprocess.run(["brew", "install", "gifsicle"])
+    elif platform.system() == "Linux":
+        print("Installing gifsicle on Linux requires sudo!")
+        print("Please run the following command in your terminal:")
+        print("sudo apt-get install gifsicle")
+
+        input("Press any key to continue with the installation of the python package.")
+    elif platform.system() == "Windows":
+        print("Please install the current gifsickle version from the website:")
+        print("https://eternallybored.org/misc/gifsicle/")
+        input("Press any key to continue with the installation of the python package.")
 
 test_deps =[
     "pytest",
