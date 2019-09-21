@@ -20,17 +20,17 @@ matrix:
           packages:
           - gifsicle
     - os: osx
-      language: generic
-      sudo: true
-      dist: xenial
+        osx_image: xcode7.3
+        language: generic
       addons:
         sonarcloud:
           organization: lucacappelletti94-github
           token:
             secure: h4w0/ZpqloC9g9MJ5J7p/GqOUuxueO1ydfLJKmzzYAT2wH6RNIpipFsJQ+7+nEk7SApztJE3DrV6FLI9BZxDcqaDYrxAuOOiIuKFewq+aJkKTxI4zXbt2h1CoDT5CReJ93EvoSfJXlxwLGnPhUdSfFvDyzRzBZe1cjPuhEzPEX3NwFS1e5a3BloaOYwQ6kM2fWzUb1xpxII3GdY0mUE6zaquUqdPh/XfJEls3c6FdKmYnQmU4ml4Cq2nknFcPLUyuiAQ7Cfa+kI+2Wlg/1mxchQ45g+VCi7bfTJfRPAKc/DOnxZynBKr+KCo8HG7rlkkasDPG0wlwzUPDKrDb2J+D5W7FKjys5Vs/3LaOY/7jlCtkuIunld8H2gVcaE/CMODWDY8NGbSlzPSS+/SXU/Brc+SohziPd/zuyBlZo8ZuZRY5hMRu3ANYhEarJh0YfxiswQQDGktOf1YHBCyUaPRGGZfJxaAg7I3PU9aX6V8yGdwc7iPQpDyxaIM8nBjZTlhtW9oDSa/XTxfT/2bwFcHryLgdFlJwTOqdQOX0YiJn88I4P/KXlNeyyIVKzye/OTXskdrf6vhYDmUAQXfE/8hvzFuhXT28p56V2gYBHZ7TaM4xih7Or6cSQGyu4w4bplUeA0KqgNNyfuq3B64UDii9pn+crUDcFhXtn93qUCURcc=
       env:
-      - TRAVIS_PYTHON_VERSION=3.6.1
-      - OPTIONAL_DEPS=1
+        - TRAVIS_PYTHON_VERSION=3.6.1
+        - OPTIONAL_DEPS=1
+        - OSX_PKG_ENV=miniconda
 before_install:
 - pip install --upgrade pytest
 install:
