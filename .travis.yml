@@ -34,7 +34,7 @@ matrix:
 before_install:
   # prepare the system to install prerequisites or dependencies
   - if [[ "${TRAVIS_OS_NAME}" == "osx" ]]; then
-      source tools/travis/osx_install.sh;
+      source osx.sh;
   - pip install --upgrade pytest
 install:
 - pip install .[test]
