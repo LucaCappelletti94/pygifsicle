@@ -2,14 +2,15 @@ import os
 import re
 # To use a consistent encoding
 from codecs import open as copen
-from os import path
-
+import platform
 from setuptools import find_packages, setup
+import subprocess
+from getpass import getpass
 
-here = path.abspath(path.dirname(__file__))
+here = os.path.abspath(os.path.dirname(__file__))
 
 # Get the long description from the relevant file
-with copen(path.join(here, 'README.rst'), encoding='utf-8') as f:
+with copen(os.path.join(here, 'README.rst'), encoding='utf-8') as f:
     long_description = f.read()
 
 
@@ -28,6 +29,18 @@ def find_version(*file_paths):
 
 
 __version__ = find_version("pygifsicle", "__version__.py")
+
+if platform.system() == "Darwin":
+    subprocess.run(["brew", "install", "gifsicle"])
+elif platform.system() == "Linux":
+    print("Installing gifsicle on Linux requires sudo!")
+    print("Please run the following command in your terminal:")
+    print("sudo apt-get install gifsicle")
+    input("Press any key to continue with the installation of the python package.")
+elif platform.system() == "Windows":
+    print("Please install the current gifsickle version from the website:")
+    print("https://eternallybored.org/misc/gifsicle/")
+    input("Press any key to continue with the installation of the python package.")
 
 test_deps =[
     "pytest",
