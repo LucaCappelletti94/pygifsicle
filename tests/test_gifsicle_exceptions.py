@@ -9,8 +9,10 @@ def test_gifsicle_exceptions():
     png = "existent_png.png"
     gif = "existent_gif.gif"
     touch(png)
+    touch(gif)
     with pytest.raises(ValueError):
         gifsicle(png)
     with pytest.raises(ValueError):
         gifsicle(gif, png)
     os.remove(png)
+    os.remove(gif)
