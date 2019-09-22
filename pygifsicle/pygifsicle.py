@@ -1,11 +1,11 @@
 from typing import List, Union
 import subprocess
-from touch import touch
 import os
 
 __all__ = ["gifsicle", "optimize"]
 
-def gifsicle(sources:Union[List[str], str], destination:str=None, optimize:bool=False, colors:int=256, options:List[str]=None):
+
+def gifsicle(sources: Union[List[str], str], destination: str = None, optimize: bool = False, colors: int = 256, options: List[str] = None):
     """Apply gifsickle with given options to image at given paths.
 
     Parameters
@@ -49,12 +49,13 @@ def gifsicle(sources:Union[List[str], str], destination:str=None, optimize:bool=
         options = []
     if optimize and "--optimize" not in options:
         options.append("--optimize")
-    subprocess.call(["gifsicle", *options, *sources, "--colors", str(colors), "--output", destination])
+    subprocess.check_output(["gifsicle", *options, *sources, "--colors",
+                             str(colors), "--output", destination])
 
 
-def optimize(source:str, *args, **kwargs):
+def optimize(source: str, *args, **kwargs):
     """Optimize given gif.
-    
+
     Parameters
     -----------------
     source:str,

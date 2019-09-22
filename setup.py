@@ -5,7 +5,6 @@ from codecs import open as copen
 import platform
 from setuptools import find_packages, setup
 import subprocess
-from getpass import getpass
 import sys
 
 here = os.path.abspath(os.path.dirname(__file__))
@@ -38,7 +37,7 @@ __version__ = find_version("pygifsicle", "__version__.py")
 
 
 if platform.system() == "Darwin":
-    subprocess.run(["brew", "install", "gifsicle"])
+    subprocess.check_output(["brew", "install", "gifsicle"])
 elif platform.system() == "Linux":
     if is_stdout_enabled():
         print("Installing gifsicle on Linux requires sudo!")
@@ -56,7 +55,8 @@ test_deps =[
     "pytest-cov",
     "coveralls",
     "validate_version_code",
-    "codacy-coverage"
+    "codacy-coverage",
+    "touch"
 ]
 
 extras = {
@@ -82,6 +82,6 @@ setup(
     packages=find_packages(exclude=['contrib', 'docs', 'tests*']),
     tests_require=test_deps,
     # Add here the package dependencies
-    install_requires=["touch"],
+    install_requires=[],
     extras_require=extras,
 )
