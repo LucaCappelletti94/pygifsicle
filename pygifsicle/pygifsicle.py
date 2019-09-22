@@ -16,6 +16,8 @@ def gifsicle(sources:Union[List[str], str], destination:str=None, optimize:bool=
         Path where to save updated gif. By default the old image is overwrited.
     optimize:bool=False,
         Boolean flag to add the option to optimize image.
+    colors:int=256,
+        Integer value representing the number of colors to use. Must be a power of 2.
     options:List[str]=None
         List of options.
 
@@ -45,7 +47,7 @@ def gifsicle(sources:Union[List[str], str], destination:str=None, optimize:bool=
         raise ValueError("Given destination path is not a gif image.")
     if options is None:
         options = []
-    if optimize:
+    if optimize and "--optimize" not in options:
         options.append("--optimize")
     subprocess.call(["gifsicle", *options, *sources, "--colors", str(colors), "--output", destination])
 

@@ -2,7 +2,7 @@ pygifsicle
 =========================================================================================
 |travis| |sonar_quality| |sonar_maintainability| |codacy| |code_climate_maintainability| |pip| |downloads|
 
-Python package wrapping the gifsicle library for editing and optimizing gifs.
+Python package wrapping the _`gifsicle library <https://www.lcdf.org/gifsicle/>`_ for editing and optimizing gifs.
 
 How do I install this package?
 ----------------------------------------------
@@ -12,12 +12,56 @@ As usual, just download it using pip:
 
     pip install pygifsicle
 
+While running the installation, on **MacOS** the setup will automatically install **gifsicle** using _`Brew <https://brew.sh/>`_.
+
+On Linux you will need to install **gifsicle** using apt-get as follows:
+
+.. code:: shell
+
+    sudo apt-get install gifsicle
+
 Tests Coverage
 ----------------------------------------------
 Since some software handling coverages sometime get slightly different results, here's three of them:
 
 |coveralls| |sonar_coverage| |code_climate_coverage|
 
+Usage examples
+----------------------------------------------
+The library is currently pretty plain: it offers a wrapper to gifsicle and a method to optimize gifs, wrapping the options for gifsicle.
+
+Optimizing a gif
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+To optimize a gif, use the following:
+
+.. code:: shell
+
+    from pygifsicle import optimize
+    optimize("path_to_my_gif.gif")
+
+
+General wrapper
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+To run gifsicle from Python use the following:
+
+.. code:: shell
+
+    from pygifsicle import gifsicle
+    gifsicle(
+        sources=["list.gif", "of.gif", "gifs.gif"], # or a single_file.gif
+        destination="destination.gif" # or just omit it and will use the first source provided.
+        optimize=False, # Whetever to add the optimize flag of not
+        colors=256, # Number of colors t use
+        options=["--verbose"] # Options to use.
+    )
+
+Learn more abou ìt the general wrapper _`by reading the function documentation. <https://github.com/LucaCappelletti94/pygifsicle/blob/0c7a1928eb0a5eb3dc99c46c227f970c7bd6b31b/pygifsicle/pygifsicle.py#L8>`_
+
+Help and support
+---------------------------------------------------
+Wanna add another wrapper for easier usage? _`Do a pull request! <https://github.com/LucaCappelletti94/pygifsicle/pulls>`_
+
+Did you find an error or weird behavior? _`Open an issue! <https://github.com/LucaCappelletti94/pygifsicle/issues>`_
 
 
 .. |travis| image:: https://travis-ci.org/LucaCappelletti94/pygifsicle.png
