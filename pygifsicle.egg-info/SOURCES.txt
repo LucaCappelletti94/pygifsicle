@@ -1,0 +1,11 @@
+MANIFEST.in
+README.rst
+setup.py
+pygifsicle/__init__.py
+pygifsicle/__version__.py
+pygifsicle/pygifsicle.py
+pygifsicle.egg-info/PKG-INFO
+pygifsicle.egg-info/SOURCES.txt
+pygifsicle.egg-info/dependency_links.txt
+pygifsicle.egg-info/requires.txt
+pygifsicle.egg-info/top_level.txt
