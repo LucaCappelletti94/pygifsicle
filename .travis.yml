@@ -33,9 +33,9 @@ matrix:
 before_install:
   # prepare the system to install prerequisites or dependencies
   - if [[ "${TRAVIS_OS_NAME}" == "osx" ]]; then
-      git clone https://github.com/matthew-brett/multibuild
-      source multibuild/osx_utils.sh
-      get_macpython_environment $TRAVIS_PYTHON_VERSION venv
+      git clone https://github.com/matthew-brett/multibuild;
+      source multibuild/osx_utils.sh;
+      get_macpython_environment $TRAVIS_PYTHON_VERSION venv;
     fi
   - pip install --upgrade pytest
 install:
