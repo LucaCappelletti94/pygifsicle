@@ -2,7 +2,7 @@ pygifsicle
 =========================================================================================
 |travis| |sonar_quality| |sonar_maintainability| |codacy| |code_climate_maintainability| |pip| |downloads|
 
-Python package wrapping the _`gifsicle library <https://www.lcdf.org/gifsicle/>`_ for editing and optimizing gifs.
+Python package wrapping the `gifsicle library <https://www.lcdf.org/gifsicle/>`_ for editing and optimizing gifs.
 
 How do I install this package?
 ----------------------------------------------
@@ -12,7 +12,7 @@ As usual, just download it using pip:
 
     pip install pygifsicle
 
-While running the installation, on **MacOS** the setup will automatically install **gifsicle** using _`Brew <https://brew.sh/>`_.
+While running the installation, on **MacOS** the setup will automatically install **gifsicle** using `Brew <https://brew.sh/>`_.
 
 On Linux you will need to install **gifsicle** using apt-get as follows:
 
@@ -55,13 +55,13 @@ To run gifsicle from Python use the following:
         options=["--verbose"] # Options to use.
     )
 
-Learn more abou ìt the general wrapper _`by reading the function documentation. <https://github.com/LucaCappelletti94/pygifsicle/blob/0c7a1928eb0a5eb3dc99c46c227f970c7bd6b31b/pygifsicle/pygifsicle.py#L8>`_
+Learn more abou ìt the general wrapper `by reading the function documentation. <https://github.com/LucaCappelletti94/pygifsicle/blob/0c7a1928eb0a5eb3dc99c46c227f970c7bd6b31b/pygifsicle/pygifsicle.py#L8>`_
 
 Help and support
 ---------------------------------------------------
-Wanna add another wrapper for easier usage? _`Do a pull request! <https://github.com/LucaCappelletti94/pygifsicle/pulls>`_
+Wanna add another wrapper for easier usage? `Do a pull request! <https://github.com/LucaCappelletti94/pygifsicle/pulls>`_
 
-Did you find an error or weird behavior? _`Open an issue! <https://github.com/LucaCappelletti94/pygifsicle/issues>`_
+Did you find an error or weird behavior? `Open an issue! <https://github.com/LucaCappelletti94/pygifsicle/issues>`_
 
 
 .. |travis| image:: https://travis-ci.org/LucaCappelletti94/pygifsicle.png
