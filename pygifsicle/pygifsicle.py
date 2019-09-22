@@ -49,8 +49,8 @@ def gifsicle(sources: Union[List[str], str], destination: str = None, optimize: 
         options = []
     if optimize and "--optimize" not in options:
         options.append("--optimize")
-    subprocess.check_output(["gifsicle", *options, *sources, "--colors",
-                             str(colors), "--output", destination])
+    subprocess.call(["gifsicle", *options, *sources, "--colors",
+                     str(colors), "--output", destination])
 
 
 def optimize(source: str, *args, **kwargs):

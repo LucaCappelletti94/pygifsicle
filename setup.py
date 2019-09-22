@@ -14,10 +14,10 @@ with copen(os.path.join(here, 'README.rst'), encoding='utf-8') as f:
     long_description = f.read()
 
 
-
-def is_stdout_enabled()->bool:
+def is_stdout_enabled() -> bool:
     """Return a boolean representing if script is in a terminal with stdout enabled."""
     return sys.stdout.isatty()
+
 
 def read(*parts):
     with copen(os.path.join(here, *parts), 'r') as fp:
@@ -37,7 +37,7 @@ __version__ = find_version("pygifsicle", "__version__.py")
 
 
 if platform.system() == "Darwin":
-    subprocess.check_output(["brew", "install", "gifsicle"])
+    subprocess.call(["brew", "install", "gifsicle"])
 elif platform.system() == "Linux":
     if is_stdout_enabled():
         print("Installing gifsicle on Linux requires sudo!")
@@ -50,7 +50,7 @@ elif platform.system() == "Windows":
         print("https://eternallybored.org/misc/gifsicle/")
         input("Press any key to continue with the installation of the python package.")
 
-test_deps =[
+test_deps = [
     "pytest",
     "pytest-cov",
     "coveralls",

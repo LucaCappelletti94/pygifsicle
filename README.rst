@@ -55,7 +55,7 @@ To run gifsicle from Python use the following:
         options=["--verbose"] # Options to use.
     )
 
-Learn more abou ìt the general wrapper `by reading the function documentation. <https://github.com/LucaCappelletti94/pygifsicle/blob/0c7a1928eb0a5eb3dc99c46c227f970c7bd6b31b/pygifsicle/pygifsicle.py#L8>`_
+Learn more about the general wrapper `by reading the function documentation. <https://github.com/LucaCappelletti94/pygifsicle/blob/0c7a1928eb0a5eb3dc99c46c227f970c7bd6b31b/pygifsicle/pygifsicle.py#L8>`_
 
 Help and support
 ---------------------------------------------------
