@@ -56,8 +56,7 @@ test_deps =[
     "pytest-cov",
     "coveralls",
     "validate_version_code",
-    "codacy-coverage",
-    "touch"
+    "codacy-coverage"
 ]
 
 extras = {
@@ -83,6 +82,6 @@ setup(
     packages=find_packages(exclude=['contrib', 'docs', 'tests*']),
     tests_require=test_deps,
     # Add here the package dependencies
-    install_requires=[],
+    install_requires=["touch"],
     extras_require=extras,
 )

@@ -1,3 +1,3 @@
-from .pygifsicle import gifsicle
+from .pygifsicle import gifsicle, optimize
 
-__all__ = ["gifsicle"]
+__all__ = ["gifsicle", "optimize"]
