@@ -34,7 +34,7 @@ Optimizing a gif
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 To optimize a gif, use the following:
 
-.. code:: shell
+.. code:: python
 
     from pygifsicle import optimize
     optimize("path_to_my_gif.gif")
@@ -44,7 +44,7 @@ General wrapper
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 To run gifsicle from Python use the following:
 
-.. code:: shell
+.. code:: python
 
     from pygifsicle import gifsicle
     gifsicle(
