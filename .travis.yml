@@ -30,12 +30,11 @@ matrix:
       env:
         - TRAVIS_PYTHON_VERSION=3.6.1
         - OPTIONAL_DEPS=1
-        - OSX_PKG_ENV=miniconda
 before_install:
   # prepare the system to install prerequisites or dependencies
-  - if [[ "${TRAVIS_OS_NAME}" == "osx" ]]; then
-      source osx.sh;
-    fi
+  - git clone https://github.com/matthew-brett/multibuild
+  - source multibuild/osx_utils.sh
+  - get_macpython_environment $TRAVIS_PYTHON_VERSION venv
   - pip install --upgrade pytest
 install:
   - pip install .[test]
