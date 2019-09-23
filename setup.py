@@ -35,14 +35,24 @@ def find_version(*file_paths):
 
 __version__ = find_version("pygifsicle", "__version__.py")
 
+linux_distributions_help = {    
+    "default":"""The sources to compile can be found at: https://github.com/kohler/gifsicle""",
+    "ubuntu":"sudo apt-get install gifsicle",
+    "arch":"sudo pacman -S gifsicle",
+    "":"sudo pacman -S gifsicle", # Some time on arch platform.linux_distribution() results in ("","","")
+    "fedora":"wget -O gifsicle.rpm https://centos.pkgs.org/7/epel-x86_64/gifsicle-1.91-1.el7.x86_64.rpm.html\nrpm -i gifsicle.rpm",
+    "centos":"wget -O gifsicle.rpm https://centos.pkgs.org/7/epel-x86_64/gifsicle-1.91-1.el7.x86_64.rpm.html\nrpm -i gifsicle.rpm"
+}
 
 if platform.system() == "Darwin":
     subprocess.call(["brew", "install", "gifsicle"])
 elif platform.system() == "Linux":
     if is_stdout_enabled():
         print("Installing gifsicle on Linux requires sudo!")
+        distro = platform.linux_distribution()[0].lower()
+        print("The current system was detected to be {}".format(distro))
         print("Please run the following command in your terminal:")
-        print("sudo apt-get install gifsicle")
+        print(linux_distributions_help.get(distro, linux_distributions_help["default"])
         input("Press any key to continue with the installation of the python package.")
 elif platform.system() == "Windows":
     if is_stdout_enabled():
