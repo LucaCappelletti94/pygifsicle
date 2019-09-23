@@ -52,7 +52,7 @@ elif platform.system() == "Linux":
         distro = platform.linux_distribution()[0].lower()
         print("The current system was detected to be {}".format(distro))
         print("Please run the following command in your terminal:")
-        print(linux_distributions_help.get(distro, linux_distributions_help["default"])
+        print(linux_distributions_help.get(distro, linux_distributions_help["default"]))
         input("Press any key to continue with the installation of the python package.")
 elif platform.system() == "Windows":
     if is_stdout_enabled():
