@@ -35,7 +35,7 @@ def find_version(*file_paths):
 
 __version__ = find_version("pygifsicle", "__version__.py")
 
-linux_distributions_help = {    
+linux_distributions_help = {
     "default":"""The sources to compile can be found at: https://github.com/kohler/gifsicle""",
     "ubuntu":"sudo apt-get install gifsicle",
     "arch":"sudo pacman -S gifsicle",
