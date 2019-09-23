@@ -19,6 +19,8 @@ On Linux you will need to install **gifsicle** using apt-get as follows:
 .. code:: shell
 
     sudo apt-get install gifsicle
+    
+On Windows you will need to download and install the `correct port of the library <https://eternallybored.org/misc/gifsicle/>`_ for your OS.
 
 Tests Coverage
 ----------------------------------------------
