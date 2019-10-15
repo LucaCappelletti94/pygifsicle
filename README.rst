@@ -59,6 +59,10 @@ To run gifsicle from Python use the following:
 
 Learn more about the general wrapper `by reading the function documentation. <https://github.com/LucaCappelletti94/pygifsicle/blob/0c7a1928eb0a5eb3dc99c46c227f970c7bd6b31b/pygifsicle/pygifsicle.py#L8>`_
 
+Troubleshooting
+---------------------------------------------------
+One of the most common issues you can get, especially on windows, is that simply the **gifsicle** library is not available system wide. Do try to run `gifsicle` in your terminal to check if the library is properly installed.
+
 Help and support
 ---------------------------------------------------
 Wanna add another wrapper for easier usage? `Do a pull request! <https://github.com/LucaCappelletti94/pygifsicle/pulls>`_
