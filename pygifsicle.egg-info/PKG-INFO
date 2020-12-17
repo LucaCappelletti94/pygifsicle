@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: pygifsicle
-Version: 1.0.1
+Version: 1.0.2
 Summary: Python package wrapping the gifsicle library for editing and optimizing gifs.
 Home-page: https://github.com/LucaCappelletti94/pygifsicle
 Author: Luca Cappelletti
@@ -27,6 +27,8 @@ Description: pygifsicle
         .. code:: shell
         
             sudo apt-get install gifsicle
+            
+        On Windows you will need to download and install the `correct port of the library <https://eternallybored.org/misc/gifsicle/>`_ for your OS.
         
         Tests Coverage
         ----------------------------------------------
@@ -64,6 +66,10 @@ Description: pygifsicle
             )
         
         Learn more about the general wrapper `by reading the function documentation. <https://github.com/LucaCappelletti94/pygifsicle/blob/0c7a1928eb0a5eb3dc99c46c227f970c7bd6b31b/pygifsicle/pygifsicle.py#L8>`_
+        
+        Troubleshooting
+        ---------------------------------------------------
+        One of the most common issues you can get, especially on windows, is that simply the **gifsicle** library is not available system wide. Do try to run `gifsicle` in your terminal to check if the library is properly installed.
         
         Help and support
         ---------------------------------------------------
@@ -111,6 +117,7 @@ Description: pygifsicle
         .. |code_climate_coverage| image:: https://api.codeclimate.com/v1/badges/6a4ca49a061d72eb040c/test_coverage
             :target: https://codeclimate.com/github/LucaCappelletti94/pygifsicle/test_coverage
             :alt: Code Climate Coverate
+        
 Platform: UNKNOWN
 Classifier: Development Status :: 3 - Alpha
 Classifier: License :: OSI Approved :: MIT License
