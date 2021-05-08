@@ -1,12 +1,13 @@
 from typing import List, Union
 import subprocess
 import os
+from pathlib import Path
 
 __all__ = ["gifsicle", "optimize"]
 
 
 def gifsicle(
-    sources: Union[List[str], str],
+    sources: Union[List[str], str, List[Path], Path],
     destination: str = None,
     optimize: bool = False,
     colors: int = 256,
@@ -16,7 +17,7 @@ def gifsicle(
 
     Parameters
     -----------------
-    sources:Union[List[str], str],
+    sources:Union[List[str], str, List[Path], Path],
         Path or paths to gif(s) image(s) to optimize.
     destination:str = None
         Path where to save updated gif(s).
@@ -45,12 +46,14 @@ def gifsicle(
     You can learn more about gifsicle at the project home page:
     https://www.lcdf.org/gifsicle/
     """
-    if isinstance(sources, str):
+    if isinstance(sources, (str, Path)):
         sources = [sources]
     for source in sources:
+        if isinstance(source, Path)
+            source = str(source)  # should work on all windows, mac, and linux
         if not os.path.exists(source):
             raise ValueError(
-                "Given source path `{}` does not exists.".format(source)
+                "Given source path `{}` does not exist.".format(source)
             )
         if not source.endswith(".gif"):
             raise ValueError(
@@ -78,12 +81,12 @@ def gifsicle(
             "the gifsicle and pygifsicle documentation."
         ))
 
-def optimize(source: str, *args, **kwargs):
+def optimize(source: Union[str, Path], *args, **kwargs):
     """Optimize given gif.
 
     Parameters
     -----------------
-    source:str,
+    source:Union[str, Path],
         Path to gif image to optimize.
     """
     gifsicle(source, *args, **kwargs, optimize=True)
