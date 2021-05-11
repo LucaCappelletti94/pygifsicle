@@ -49,7 +49,7 @@ def gifsicle(
     if isinstance(sources, (str, Path)):
         sources = [sources]
     for source in sources:
-        if isinstance(source, Path)
+        if isinstance(source, Path):
             source = str(source)  # should work on all windows, mac, and linux
         if not os.path.exists(source):
             raise ValueError(
@@ -61,7 +61,7 @@ def gifsicle(
             )
     if destination is None:
         destination = sources[0]
-    if not destination.endswith(".gif"):
+    if not str(destination).endswith(".gif"):
         raise ValueError("Given destination path is not a gif image.")
     if options is None:
         options = []
