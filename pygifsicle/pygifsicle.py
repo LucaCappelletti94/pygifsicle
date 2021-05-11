@@ -1,4 +1,4 @@
-from typing import List, Union
+from typing import List, Optional, Union
 import subprocess
 import os
 from pathlib import Path
@@ -8,26 +8,26 @@ __all__ = ["gifsicle", "optimize"]
 
 def gifsicle(
     sources: Union[List[str], str, List[Path], Path],
-    destination: str = None,
+    destination: Optional[str] = None,
     optimize: bool = False,
     colors: int = 256,
-    options: List[str] = None
-):
+    options: Optional[List[str]] = None
+) -> None:
     """Apply gifsickle with given options to image at given paths.
 
     Parameters
     -----------------
     sources:Union[List[str], str, List[Path], Path],
         Path or paths to gif(s) image(s) to optimize.
-    destination:str = None
+    destination:Optional[str] = None
         Path where to save updated gif(s).
         By default the old image is overwrited.
         If multiple sources are specified, they will be merged.
-    optimize:bool = False,
+    optimize: bool = False,
         Boolean flag to add the option to optimize image.
     colors:int = 256,
         Integer value representing the number of colors to use. Must be a power of 2.
-    options:List[str] = None
+    options:Optional[List[str]] = None
         List of options.
 
     Raises
@@ -81,7 +81,7 @@ def gifsicle(
             "the gifsicle and pygifsicle documentation."
         ))
 
-def optimize(source: Union[str, Path], *args, **kwargs):
+def optimize(source: Union[str, Path], *args, **kwargs) -> None:
     """Optimize given gif.
 
     Parameters
