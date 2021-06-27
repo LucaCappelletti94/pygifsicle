@@ -49,13 +49,17 @@ if platform.system() == "Darwin":
 elif platform.system() == "Linux":
     if is_stdout_enabled():
         print("Installing gifsicle on Linux requires sudo!")
-        with open("/etc/os-release", "r") as f:
-            for line in f:
-                if line.strip()[0:3] == "ID=":
-                    distro = line.strip().split("=")[-1].lower()
-                    break
-        print("The current system was detected to be {}".format(distro))
-        print("Please run the following command in your terminal:")
+        distro = "default"
+        if os.path.exists("/etc/os-release"):
+            with open("/etc/os-release", "r") as f:
+                for line in f:
+                    if line.strip()[0:3] == "ID=":
+                        distro = line.strip().split("=")[-1].lower()
+                        break
+            print("The current system was detected to be {}".format(distro))
+            print("Please run the following command in your terminal:")
+        else:
+            print("The current distribution could not be detected")
         print(linux_distributions_help.get(
             distro, linux_distributions_help["default"]))
         input("Press any key to continue with the installation of the python package.")
