@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: pygifsicle
-Version: 1.0.4
+Version: 1.0.5
 Summary: Python package wrapping the gifsicle library for editing and optimizing gifs.
 Home-page: https://github.com/LucaCappelletti94/pygifsicle
 Author: Luca Cappelletti
