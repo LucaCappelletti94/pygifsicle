@@ -40,6 +40,7 @@ linux_distributions_help = {
     "ubuntu": "sudo apt-get install gifsicle",
     "debian": "sudo apt-get install gifsicle",
     "arch": "sudo pacman -S gifsicle",
+    "manjaro": "sudo pacman -S gifsicle",
     "fedora": "wget -O gifsicle.rpm https://centos.pkgs.org/7/epel-x86_64/gifsicle-1.91-1.el7.x86_64.rpm.html\nrpm -i gifsicle.rpm",
     "centos": "wget -O gifsicle.rpm https://centos.pkgs.org/7/epel-x86_64/gifsicle-1.91-1.el7.x86_64.rpm.html\nrpm -i gifsicle.rpm"
 }
