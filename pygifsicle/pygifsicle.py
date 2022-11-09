@@ -59,14 +59,19 @@ def gifsicle(
             raise ValueError(
                 "Given source path `{}` is not a gif image.".format(source)
             )
+
     if destination is None:
         destination = sources[0]
+    
     if not str(destination).endswith(".gif"):
         raise ValueError("Given destination path is not a gif image.")
+    
     if options is None:
         options = []
+    
     if optimize and "--optimize" not in options:
         options.append("--optimize")
+    
     try:
         subprocess.call(["gifsicle", *options, *sources, "--colors",
                         str(colors), "--output", destination])

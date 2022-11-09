@@ -9,3 +9,5 @@
 .notipy.json
 .coverage
 *.egg-info
+.pytest_cache
+htmlcov
