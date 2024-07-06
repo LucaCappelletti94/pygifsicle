@@ -1,7 +1,6 @@
+"""Setup script for the package."""
 import os
 import re
-# To use a consistent encoding
-from codecs import open as copen
 import platform
 from setuptools import find_packages, setup
 import subprocess
@@ -10,7 +9,7 @@ import sys
 here = os.path.abspath(os.path.dirname(__file__))
 
 # Get the long description from the relevant file
-with copen(os.path.join(here, 'README.rst'), encoding='utf-8') as f:
+with open(os.path.join(here, 'README.md'), encoding='utf8') as f:
     long_description = f.read()
 
 
@@ -20,7 +19,7 @@ def is_stdout_enabled() -> bool:
 
 
 def read(*parts):
-    with copen(os.path.join(here, *parts), 'r') as fp:
+    with open(os.path.join(here, *parts), 'r', encoding='utf8') as fp:
         return fp.read()
 
 
@@ -52,12 +51,12 @@ elif platform.system() == "Linux":
         print("Installing gifsicle on Linux requires sudo!")
         distro = "default"
         if os.path.exists("/etc/os-release"):
-            with open("/etc/os-release", "r") as f:
+            with open("/etc/os-release", "r", encoding='utf8') as f:
                 for line in f:
                     if line.strip()[0:3] == "ID=":
                         distro = line.strip().split("=")[-1].lower()
                         break
-            print("The current system was detected to be {}".format(distro))
+            print(f"The current system was detected to be {distro}")
             print("Please run the following command in your terminal:")
         else:
             print("The current distribution could not be detected")
@@ -86,6 +85,7 @@ setup(
     version=__version__,
     description="Python package wrapping the gifsicle library for editing and optimizing gifs.",
     long_description=long_description,
+    long_description_content_type='text/markdown',
     url="https://github.com/LucaCappelletti94/pygifsicle",
     author="Luca Cappelletti",
     author_email="cappelletti.luca94@gmail.com",
@@ -93,13 +93,11 @@ setup(
     license='MIT',
     include_package_data=True,
     classifiers=[
-        'Development Status :: 3 - Alpha',
+        'Development Status :: 5 - Production/Stable',
         'License :: OSI Approved :: MIT License',
         'Programming Language :: Python :: 3'
     ],
     packages=find_packages(exclude=['contrib', 'docs', 'tests*']),
     tests_require=test_deps,
-    # Add here the package dependencies
-    install_requires=["support_developer>=1.0.5"],
     extras_require=extras,
 )

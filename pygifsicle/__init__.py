@@ -1,6 +1,5 @@
-from support_developer import support_luca
-from .pygifsicle import gifsicle, optimize
+"""Package for gifsicle wrapper."""
 
-support_luca("pygifsicle")
+from .pygifsicle import gifsicle, optimize
 
 __all__ = ["gifsicle", "optimize"]

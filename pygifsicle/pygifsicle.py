@@ -1,3 +1,4 @@
+"""Module to optimize gif images using gifsicle."""
 from typing import List, Optional, Union
 import subprocess
 import os
@@ -11,7 +12,7 @@ def gifsicle(
     destination: Optional[str] = None,
     optimize: bool = False,
     colors: int = 256,
-    options: Optional[List[str]] = None
+    options: Optional[List[str]] = None,
 ) -> None:
     """Apply gifsickle with given options to image at given paths.
 
@@ -52,9 +53,7 @@ def gifsicle(
         if isinstance(source, Path):
             source = str(source)  # should work on all windows, mac, and linux
         if not os.path.exists(source):
-            raise ValueError(
-                "Given source path `{}` does not exist.".format(source)
-            )
+            raise ValueError("Given source path `{}` does not exist.".format(source))
         if not source.endswith(".gif"):
             raise ValueError(
                 "Given source path `{}` is not a gif image.".format(source)
@@ -62,29 +61,41 @@ def gifsicle(
 
     if destination is None:
         destination = sources[0]
-    
+
     if not str(destination).endswith(".gif"):
         raise ValueError("Given destination path is not a gif image.")
-    
+
     if options is None:
         options = []
-    
+
     if optimize and "--optimize" not in options:
         options.append("--optimize")
-    
+
     try:
-        subprocess.call(["gifsicle", *options, *sources, "--colors",
-                        str(colors), "--output", destination])
-    except FileNotFoundError:
-        raise FileNotFoundError((
-            "The gifsicle library was not found on your system.\n"
-            "On MacOS it is automatically installed using brew when you "
-            "use the pip install command.\n"
-            "On other systems, like Linux systems and Windows, it prompts the "
-            "instructions to be followed for completing the installation.\n"
-            "You can learn more on how to install gifsicle on "
-            "the gifsicle and pygifsicle documentation."
-        ))
+        subprocess.call(
+            [
+                "gifsicle",
+                *options,
+                *sources,
+                "--colors",
+                str(colors),
+                "--output",
+                destination,
+            ]
+        )
+    except FileNotFoundError as exception:
+        raise FileNotFoundError(
+            (
+                "The gifsicle library was not found on your system.\n"
+                "On MacOS it is automatically installed using brew when you "
+                "use the pip install command.\n"
+                "On other systems, like Linux systems and Windows, it prompts the "
+                "instructions to be followed for completing the installation.\n"
+                "You can learn more on how to install gifsicle on "
+                "the gifsicle and pygifsicle documentation."
+            )
+        ) from exception
+
 
 def optimize(source: Union[str, Path], *args, **kwargs) -> None:
     """Optimize given gif.
