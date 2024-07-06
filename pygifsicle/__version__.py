@@ -1,3 +1,3 @@
 """Current version of package pygifsicle"""
 
-__version__ = "1.0.7"
+__version__ = "1.1.0"
