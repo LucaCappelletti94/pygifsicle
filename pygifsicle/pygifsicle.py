@@ -1,4 +1,5 @@
 """Module to optimize gif images using gifsicle."""
+
 from typing import List, Optional, Union
 import subprocess
 import os
@@ -18,17 +19,17 @@ def gifsicle(
 
     Parameters
     -----------------
-    sources:Union[List[str], str, List[Path], Path],
+    sources: Union[List[str], str, List[Path], Path],
         Path or paths to gif(s) image(s) to optimize.
-    destination:Optional[str] = None
+    destination: Optional[str] = None
         Path where to save updated gif(s).
         By default the old image is overwrited.
         If multiple sources are specified, they will be merged.
     optimize: bool = False,
         Boolean flag to add the option to optimize image.
-    colors:int = 256,
+    colors: int = 256,
         Integer value representing the number of colors to use. Must be a power of 2.
-    options:Optional[List[str]] = None
+    options: Optional[List[str]] = None
         List of options.
 
     Raises
@@ -53,11 +54,9 @@ def gifsicle(
         if isinstance(source, Path):
             source = str(source)  # should work on all windows, mac, and linux
         if not os.path.exists(source):
-            raise ValueError("Given source path `{}` does not exist.".format(source))
+            raise ValueError(f"Given source path `{source}` does not exist.")
         if not source.endswith(".gif"):
-            raise ValueError(
-                "Given source path `{}` is not a gif image.".format(source)
-            )
+            raise ValueError(f"Given source path `{source}` is not a gif image.")
 
     if destination is None:
         destination = sources[0]
@@ -102,7 +101,7 @@ def optimize(source: Union[str, Path], *args, **kwargs) -> None:
 
     Parameters
     -----------------
-    source:Union[str, Path],
+    source: Union[str, Path],
         Path to gif image to optimize.
     """
     gifsicle(source, *args, **kwargs, optimize=True)
